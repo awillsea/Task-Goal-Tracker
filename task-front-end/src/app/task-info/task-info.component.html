@@ -1,0 +1,17 @@
+<p>task-info works!</p>
+<div>
+    <h2>Title:</h2>
+    {{taskInfo.title}} <br>
+    <h2>Description:</h2>
+    {{taskInfo.description}}<br>
+    <h2>Date task started:</h2>
+    {{taskInfo.start_date}}<br>
+    <h2>Target end date for task:</h2>
+    {{taskInfo.target_end_date}}<br>
+    <h2>Percent of task complete:</h2>
+    {{taskInfo.completion_percentage}}<br>
+    <h2>Priority level to finish:</h2>
+    {{taskInfo.priority_level}}<br>
+    <button (click)="editTask()">Edit</button>
+    <button (click)="deleteTask()">Delete</button>
+</div>
