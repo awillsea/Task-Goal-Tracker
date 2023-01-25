@@ -1,0 +1,11 @@
+<p>stat-tracker works!</p>
+<ng-container>
+    You have {{AmountOfTasks}} task
+    Select Date from which you want stats :<br>
+    <input type="date" [(ngModel)]="firstDate">
+    <input type="date" [(ngModel)]="secondDate">
+    {{title}}
+    <button (click)="DateCheck()">test</button>
+    <button (click)="checkTime()">test 2</button>
+</ng-container>
+

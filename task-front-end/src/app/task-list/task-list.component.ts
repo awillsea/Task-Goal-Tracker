@@ -4,6 +4,9 @@ import { TaskInfoComponent } from '../task-info/task-info.component';
 import { TaskServiceService } from '../task-service.service';
 @Component({
   selector: 'app-task-list',
+//   template:`<ul>
+//   <li *ngFor="let task of TaskSrv.data | async">{{ task.title }}</li>
+// </ul>`,
   templateUrl: './task-list.component.html',
   styleUrls: ['./task-list.component.css']
 })
@@ -17,18 +20,18 @@ export class TaskListComponent implements OnInit {
   completion_percentage:number = 0;
   priority_level:number = 0;
   constructor(public TaskSrv:TaskServiceService){
+    this.TaskSrv.getAll2();
 
   }
   refresh(){
-    this.TaskSrv.getAll(
-      (result:Task[])=>{
-        this.ListOfTask = result;
-      }
-    );
+    this.TaskSrv.getAll((result:Task[])=>{this.ListOfTask = result})
+    this.TaskSrv.getAll2();
+
   }
  
   ngOnInit(): void {
     this.refresh();
+
   }
   makeNewTask:boolean = false;
   showMakeANewTaskInput(){

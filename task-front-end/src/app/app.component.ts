@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TaskServiceService } from './task-service.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'task-front-end';
+  // constructor(private TaskSrv:TaskServiceService){this.refresh()}
+  // refresh(){
+  // this.TaskSrv.getAll2();
+  // }
 }

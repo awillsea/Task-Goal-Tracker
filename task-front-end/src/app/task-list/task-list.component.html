@@ -1,4 +1,5 @@
 <p>task-list works!</p>
+
 <ng-container *ngIf="!makeNewTask">
 <button (click)="showMakeANewTaskInput()">Make A Task</button>
 </ng-container>
@@ -17,4 +18,3 @@
     </ng-container>
 
 <app-task-info *ngFor="let task of ListOfTask" [taskInfo]="task" (delete)="deleteTask($event)"></app-task-info>
-
