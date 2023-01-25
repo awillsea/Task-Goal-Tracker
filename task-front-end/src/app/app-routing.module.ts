@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { StatTrackerComponent } from './stat-tracker/stat-tracker.component';
 // import { HeroesComponent } from './heroes/heroes.component'; <-- insert components here
 import { TaskListComponent } from './task-list/task-list.component';
 const routes: Routes = [
   // { path: 'heroes', component: HeroesComponent }
-  {path:'task',component: TaskListComponent}
+  {path:'task',component: TaskListComponent},
+  {path:'stats',component:StatTrackerComponent}
 ];
 
 @NgModule({

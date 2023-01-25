@@ -1,17 +1,34 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Task } from './task';
-
+import { Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskServiceService {
+
+  constructor(private http: HttpClient) { }
+
+ 
   port:number = 7140;
+  data:any [] = [];
 
   getAll(cb:any){
     this.http.get<Task[]>(`https://localhost:${this.port}/task`).subscribe(cb);
   }
+  getAll2(){
+     return this.http.get<Task[]>(`https://localhost:${this.port}/task`).subscribe(response =>{
+      this.data = response;
+    });
+  }
+
+
+
+ 
+
 
 
 	getOne(cb: any, id: number) {
@@ -29,5 +46,4 @@ export class TaskServiceService {
     this.http.delete<Task>(`https://localhost:${this.port}/task?id=${task_id}`).subscribe(cb);
   }
 
-  constructor(private http: HttpClient) { }
 }
