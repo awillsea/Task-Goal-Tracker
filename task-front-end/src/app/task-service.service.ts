@@ -19,14 +19,14 @@ export class TaskServiceService {
 	}
 
 	CreateTask(cb:any, newTask:Task){
-		this.http.post<Task>(`https://localhost:${this.port}/task/${newTask}`,newTask).subscribe(cb);
+		this.http.post<Task>(`https://localhost:${this.port}/task/`,newTask).subscribe(cb);
 	};
 
 	UpdateTask(cb:any, Task:Task){
 		this.http.put<Task>(`https://localhost:${this.port}/task/${Task}`, Task).subscribe(cb);
 	}
   DeleteTask(cb:any, task_id:number){
-    this.http.delete<Task>(`https://localhost:${this.port}/task/${task_id}`).subscribe(cb);
+    this.http.delete<Task>(`https://localhost:${this.port}/task?id=${task_id}`).subscribe(cb);
   }
 
   constructor(private http: HttpClient) { }

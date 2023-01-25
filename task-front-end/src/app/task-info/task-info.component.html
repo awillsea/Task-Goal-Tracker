@@ -1,5 +1,13 @@
 <p>task-info works!</p>
-<div>
+<ng-container *ngIf="!expand">
+    <h2>Title:</h2>
+    {{taskInfo.title}} <br>
+    <h2>Description:</h2>
+    {{taskInfo.description}}<br>
+    <br>
+    <button (click)="expandInfo()">Show More Info</button>
+</ng-container>
+<ng-container *ngIf="expand">
     <h2>Title:</h2>
     {{taskInfo.title}} <br>
     <h2>Description:</h2>
@@ -14,4 +22,17 @@
     {{taskInfo.priority_level}}<br>
     <button (click)="editTask()">Edit</button>
     <button (click)="deleteTask()">Delete</button>
-</div>
+    <button (click)="hideInfo()">Hide</button>
+</ng-container>
+
+<ng-container *ngIf="editMode">
+    <input type="text"[(ngModel)]="editTitle">
+    <input type="text"[(ngModel)]="editDescription" >
+    <input type="date"[(ngModel)]="editTargetDate">
+    <input type="number"[(ngModel)]="editCompletionPercentage">
+    <input type="number"[(ngModel)]="editPriorityLevel">
+<br><br>
+<button (click)="saveChanges()">Save</button>
+<button (click)="cancelChanges()">Cancel</button>
+
+</ng-container>

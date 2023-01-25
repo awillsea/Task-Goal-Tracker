@@ -7,11 +7,11 @@ import { Task } from '../task';
 })
 export class TaskInfoComponent implements OnInit  {
 @Input() taskInfo:Task = {
-  id:2,
-  title:'Study',
-  description:'Practice tech,code,interviews every day',
-  start_date:'01-24-2023',
-  target_end_date:'12-31-2023',
+  id:0,
+  title:'',
+  description:'',
+  start_date:'',
+  target_end_date:'',
   completion_percentage:1,
   priority_level:4
 };
@@ -32,9 +32,29 @@ editTask(){
   this.editCompletionPercentage = this.taskInfo.completion_percentage;
   this.editPriorityLevel = this.taskInfo.priority_level;
 }
-@Output() delete:EventEmitter<Task> = new EventEmitter<Task>();
+@Output() delete:EventEmitter<number> = new EventEmitter<number>();
 
 deleteTask(){
-this.delete.emit(this.taskInfo);
+this.delete.emit(this.taskInfo.id);
+}
+
+saveChanges(){
+  this.taskInfo.title = this.editTitle;
+  this.taskInfo.description = this.editDescription;
+  this.taskInfo.target_end_date = this.editTargetDate;
+  this.taskInfo.completion_percentage = this.editCompletionPercentage;
+  this.taskInfo.priority_level = this.editPriorityLevel;
+
+  this.editMode = false;
+}
+cancelChanges(){
+this.editMode = false;
+}
+expand:boolean = false;
+expandInfo(){
+  this.expand = true;
+}
+hideInfo(){
+  this.expand = false;
 }
 }
