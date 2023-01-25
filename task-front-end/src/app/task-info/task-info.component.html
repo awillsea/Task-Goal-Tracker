@@ -1,5 +1,13 @@
 <p>task-info works!</p>
-<div>
+<ng-container *ngIf="!expand">
+    <h2>Title:</h2>
+    {{taskInfo.title}} <br>
+    <h2>Description:</h2>
+    {{taskInfo.description}}<br>
+    <button (click)="expandInfo()">Show More Info</button>
+</ng-container>
+<ng-container *ngIf="expand">
+
     <h2>Title:</h2>
     {{taskInfo.title}} <br>
     <h2>Description:</h2>
