@@ -8,6 +8,7 @@ import { TaskInfoComponent } from './task-info/task-info.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { StatTrackerComponent } from './stat-tracker/stat-tracker.component';
 import { StatListComponent } from './stat-list/stat-list.component';
+import { HomeDashBoardComponent } from './home-dash-board/home-dash-board.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { StatListComponent } from './stat-list/stat-list.component';
     TaskInfoComponent,
     TaskListComponent,
     StatTrackerComponent,
-    StatListComponent
+    StatListComponent,
+    HomeDashBoardComponent
   ],
   imports: [
     BrowserModule,
