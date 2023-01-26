@@ -7,13 +7,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { TaskInfoComponent } from './task-info/task-info.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { StatTrackerComponent } from './stat-tracker/stat-tracker.component';
+import { StatListComponent } from './stat-list/stat-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TaskInfoComponent,
     TaskListComponent,
-    StatTrackerComponent
+    StatTrackerComponent,
+    StatListComponent
   ],
   imports: [
     BrowserModule,

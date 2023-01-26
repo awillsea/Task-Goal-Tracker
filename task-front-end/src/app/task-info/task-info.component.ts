@@ -15,6 +15,7 @@ export class TaskInfoComponent implements OnInit  {
   completion_percentage:1,
   priority_level:4
 };
+
 ngOnInit(): void {
   
 }
