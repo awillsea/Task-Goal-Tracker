@@ -1,19 +1,20 @@
-<p>task-list works!</p>
 
+<p>task-list works!</p>
+<!-- <img class="mask mask-squircle" src="https://placeimg.com/160/160/arch" /> -->
 <ng-container *ngIf="!makeNewTask">
-<button (click)="showMakeANewTaskInput()">Make A Task</button>
+<button class="btn" (click)="showMakeANewTaskInput()">Make A Task</button>
 </ng-container>
 <br>
 <ng-container *ngIf="makeNewTask">
     <br>
-    Title: <input type="text" [(ngModel)]="title">  <br>
-    Description:<input type="text" [(ngModel)]="description"> <br>
-    Start Date:<input type="date" [(ngModel)]="start_date"> <br>
-    Target End Date:<input type="date" [(ngModel)]="target_end_date"> <br> 
-    Completion Percentage:<input type="number" [(ngModel)]="completion_percentage"> <br>
-    Priority Level:<input type="number" [(ngModel)]="priority_level"> <br>
-    <button (click)="createATask()">Create</button>
-    <button (click)="hideNewTask()">Cancel</button>
+    Title: <input type="text" [(ngModel)]="title" placeholder="Type here" class="input input-bordered w-full max-w-xs">  <br>
+    Description:<input type="text" [(ngModel)]="description" placeholder="Type here" class="input input-bordered w-full max-w-xs"> <br>
+    Start Date:<input type="date" [(ngModel)]="start_date" class="input input-bordered w-full max-w-xs"> <br>
+    Target End Date:<input type="date" [(ngModel)]="target_end_date" class="input input-bordered w-full max-w-xs"> <br> 
+    Completion Percentage:<input type="number" [(ngModel)]="completion_percentage" class="input input-bordered w-full max-w-xs"> <br>
+    Priority Level:<input type="number" [(ngModel)]="priority_level" class="input input-bordered w-full max-w-xs"> <br>
+    <button class="btn" (click)="createATask()">Create</button>
+    <button class="btn" (click)="hideNewTask()">Cancel</button>
     
     </ng-container>
 

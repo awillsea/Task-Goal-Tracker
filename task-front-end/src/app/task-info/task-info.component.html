@@ -4,7 +4,7 @@
     {{taskInfo.title}} <br>
     <h2>Description:</h2>
     {{taskInfo.description}}<br>
-    <button (click)="expandInfo()">Show More Info</button>
+    <button class="btn" (click)="expandInfo()">Show More Info</button>
 </ng-container>
 <ng-container *ngIf="expand">
 
@@ -20,9 +20,9 @@
     {{taskInfo.completion_percentage}}<br>
     <h2>Priority level to finish:</h2>
     {{taskInfo.priority_level}}<br>
-    <button (click)="editTask()">Edit</button>
-    <button (click)="deleteTask()">Delete</button>
-    <button (click)="hideInfo()">Hide</button>
+    <button class="btn" (click)="editTask()">Edit</button>
+    <button class="btn" (click)="deleteTask()">Delete</button>
+    <button class="btn" (click)="hideInfo()">Hide</button>
 </ng-container>
 
 <ng-container *ngIf="editMode">

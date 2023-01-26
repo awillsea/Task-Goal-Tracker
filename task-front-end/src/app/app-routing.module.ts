@@ -13,7 +13,7 @@ const routes: Routes = [
   {path:'task',component: TaskListComponent},
   {path:'stats',component:StatTrackerComponent},
   {path:'statList',component:StatListComponent},
-  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  // {path: '', redirectTo: 'home', pathMatch: 'full'},
 ];
 
 @NgModule({

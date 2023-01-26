@@ -7,7 +7,7 @@ import { TaskServiceService } from './task-service.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'task-front-end';
+  // title = 'task-front-end';
   // constructor(private TaskSrv:TaskServiceService){this.refresh()}
   // refresh(){
   // this.TaskSrv.getAll2();
