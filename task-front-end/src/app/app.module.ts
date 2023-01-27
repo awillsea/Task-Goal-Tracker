@@ -10,7 +10,7 @@ import { StatTrackerComponent } from './stat-tracker/stat-tracker.component';
 import { StatListComponent } from './stat-list/stat-list.component';
 import { HomeDashBoardComponent } from './home-dash-board/home-dash-board.component';
 import { TaskWindowComponent } from './task-window/task-window.component';
-
+import { CalanderComponent } from './calander/calander.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +19,8 @@ import { TaskWindowComponent } from './task-window/task-window.component';
     StatTrackerComponent,
     StatListComponent,
     HomeDashBoardComponent,
-    TaskWindowComponent
+    TaskWindowComponent,
+    CalanderComponent
   ],
   imports: [
     BrowserModule,

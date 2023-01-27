@@ -1,0 +1,28 @@
+<div #base class="flex items-center justify-center min-h-screen bg-secondary ">
+    <div #wrapper class="w-96 bg-primary-content ">
+            <header class="flex items-center justify-between pt-6 pl-7 pb-2.5">
+                <p class="text-3xl">
+                {{month[currentMonth-1]}}
+                 </p>
+                <div >
+                    <span class="btn btn-circle ">❮</span> 
+                    <span class="btn btn-circle">❯</span>
+                </div>
+            </header>
+        <div #calendar class="p-1.5">
+
+            <ul #weeks class="flex flex-wrap text-center ">
+            <li *ngFor="let abv of weekDays" class=" w-[3.3rem] text-2xl" >
+                {{abv}}
+            </li>
+            </ul>
+            <ul #days class="flex flex-wrap text-center">
+            <li *ngFor="let num of calendarDays" class="w-[3.3rem] mb-3 mt-1 cursor-pointer  before:content-[''] postion:absolute h-10 w-10 bg-accent">
+                {{num}}
+            </li>
+
+            </ul>
+
+        </div>
+    </div>
+</div>

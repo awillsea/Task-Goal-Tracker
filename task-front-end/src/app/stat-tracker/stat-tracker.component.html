@@ -13,12 +13,15 @@
         You have made {{amountOfTaskWithInRange.length}}
          between {{firstDate}} and {{secondDate}}
     </p>
-    The Task you have Created since then are:<br>
+        <h2>
+             The Task you have Created since then are:<br>
+        </h2>
 
 <ng-container *ngFor="let t of tempListForStats">
     Title {{t.title}}<br>
    
 </ng-container>
+
 You have completed {{AmountOfCompletedTaskInRange}} of the {{amountOfTaskWithInRange.length}}<br>
 Your Average Completion percentage of those Task are {{percentWithInRange}}% 
 
