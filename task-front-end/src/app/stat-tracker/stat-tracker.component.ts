@@ -50,8 +50,12 @@ export class StatTrackerComponent implements OnInit {
   DateCheck() {
     this.amountOfTaskWithInRange = [];
     // let tempFirstDate:any = this.firstDate.split('-')
+    console.log(this.firstDate);
     let tempFirstDate = this.convertDateToString(this.firstDate);
+    console.log(tempFirstDate);
     let tempFirstParts = this.splitDashFromDatString(tempFirstDate);
+    console.log(tempFirstParts);
+
     let newTempFirstDate = this.convertStringToDate(tempFirstParts);
     let tempSecondDate = this.convertDateToString(this.secondDate);
     let tempSecondParts = this.splitDashFromDatString(tempSecondDate);
@@ -67,15 +71,15 @@ export class StatTrackerComponent implements OnInit {
       // if(this.checkTime()) <-- use function to compare the ranged dates. and if they are with in that range get back the Id's of those dates so we can then populate how many task were created in that span
       if (tempDate >= newTempFirstDate && tempDate <= newTempSecondDate) {
         this.amountOfTaskWithInRange.push(this.ListForStats[i].id)
-        console.log('inside the && statement')
+        // console.log('inside the && statement')
       
       } else {
-        console.log(`inside the last statement`);
-        console.log(tempDate)
+        // console.log(`inside the last statement`);
+        // console.log(tempDate)
       }
     }
-    console.log(this.amountOfTaskWithInRange.length);
-    console.log(this.amountSinceStartDate.length);
+    // console.log(this.amountOfTaskWithInRange.length);
+    // console.log(this.amountSinceStartDate.length);
     if (this.amountOfTaskWithInRange.length > 0) {
       this.taskInRange = true;
     }

@@ -1,0 +1,56 @@
+<div class="min-h-screen">
+
+<div class="text-center text-4xl">
+    Welcome AJ
+</div>
+
+<div class="dropdown dropdown-hover">
+    <label tabindex="0" class="btn m-1">Click</label>
+    <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+      <li>
+        <button class="btn" (click)="almostComplete()">Almost There!</button>
+    </li>
+      <li>
+        <button class="btn" (click)="waysToGo()">Not close to done</button>
+      </li>
+      <li>
+        <button class="btn" (click)="findHighPriority()">TOP level Importance</button>
+      </li>
+      <li>
+        <button class="btn" (click)="closeToTargetDate()">Close to missing Target goal</button>
+      </li>
+    </ul>
+  </div>
+
+<div class="flex flex-row justify-evenly mt-16">
+<div class="flex flex-row  gap-6">
+<ng-container *ngFor="let task of filteredList">
+        <div class="flex-auto w-1/3">
+          <div class="card w-96 bg-primary text-primary-content">
+              <div class="card-body">
+                  <h2 class="card-title">{{task.title}}</h2>
+                  <p>{{task.description}}</p>
+                  <div class="card-actions justify-end">
+                      <div class="radial-progress" style="--value:{{task.completion_percentage}};">{{task.completion_percentage}}%</div>
+                      priority level {{task.priority_level}}
+                      target completion date: {{task.target_end_date}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>
+</div>
+</div>
+<div class="card w-96 bg-base-100 shadow-xl">
+    <figure class="px-10 pt-10">
+      <img src="https://placeimg.com/400/225/arch" alt="Shoes" class="rounded-xl" />
+    </figure>
+    <div class="card-body items-center text-center">
+      <h2 class="card-title">Shoes!</h2>
+      <p>If a dog chews shoes whose shoes does he choose?</p>
+      <div class="card-actions">
+        <button class="btn btn-primary">Buy Now</button>
+      </div>
+    </div>
+  </div>

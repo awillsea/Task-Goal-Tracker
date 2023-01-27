@@ -6,13 +6,14 @@ import { TaskListComponent } from './task-list/task-list.component';
 import { StatListComponent } from './stat-list/stat-list.component';
 import { AppComponent } from './app.component';
 import { HomeDashBoardComponent } from './home-dash-board/home-dash-board.component';
-
+import { TaskWindowComponent } from './task-window/task-window.component';
 const routes: Routes = [
   // { path: 'heroes', component: HeroesComponent }
   {path:'home',component:HomeDashBoardComponent},
   {path:'task',component: TaskListComponent},
   {path:'stats',component:StatTrackerComponent},
   {path:'statList',component:StatListComponent},
+  {path:'taskWindow',component:TaskWindowComponent},
   // {path: '', redirectTo: 'home', pathMatch: 'full'},
 ];
 
