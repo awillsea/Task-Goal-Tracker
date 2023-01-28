@@ -2,11 +2,11 @@
     <div #wrapper class="w-96 bg-primary-content ">
             <header class="flex items-center justify-between pt-6 pl-7 pb-2.5">
                 <p class="text-3xl">
-                {{month[currentMonth-1]}}
+                {{month[currentMonth]}}
                  </p>
                 <div >
-                    <span class="btn btn-circle ">❮</span> 
-                    <span class="btn btn-circle">❯</span>
+                    <button (click)="previousMonth()" class="btn btn-circle ">❮</button> 
+                    <button (click)="nextMonth()" class="btn btn-circle">❯</button>
                 </div>
             </header>
         <div #calendar class="p-1.5">
@@ -17,7 +17,15 @@
             </li>
             </ul>
             <ul #days class="flex flex-wrap text-center">
-            <li *ngFor="let num of calendarDays" class="w-[3.3rem] mb-3 mt-1 cursor-pointer  before:content-[''] postion:absolute h-10 w-10 bg-accent">
+                <li *ngFor="let num of daysBeforeCurrentMonth"  class="w-[3.3rem] mb-3 mt-1 text-slate-600 cursor-pointer  hover:bg-info-content">
+                    {{num}}
+                </li>
+                <ng-container *ngIf="isToday" class="text-black">
+            <li *ngFor="let num of daysInCurrentMonth"  class="w-[3.3rem] mb-3 mt-1 cursor-pointer  hover:bg-info-content">
+                {{num}}
+            </li>
+         </ng-container>
+            <li *ngFor="let num of daysAfterCurrentMonth"  class="w-[3.3rem] mb-3 mt-1 text-slate-600 cursor-pointer  hover:bg-info-content">
                 {{num}}
             </li>
 

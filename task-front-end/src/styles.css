@@ -2,3 +2,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer components{
+    .crossed-out
+    {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        content: ""; /* use the hex value here... */
+        font-size: 50px; 
+        color: #FFF;
+        line-height: 100px;
+        text-align: center;
+    }
+}
