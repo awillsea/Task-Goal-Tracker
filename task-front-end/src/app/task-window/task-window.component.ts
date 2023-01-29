@@ -10,12 +10,18 @@ export class TaskWindowComponent implements OnInit {
 
   smallListOfTask:Task [] = [];
   filteredList:Task [] = [];
-
+  nothingSelected:boolean = true;
   constructor(private TaskSrv:TaskServiceService){
     this.refresh();
   }
   ngOnInit(): void {
     this.refresh();
+    if(this.nothingSelected){
+      this.filteredList.push(this.smallListOfTask[0])
+      this.filteredList.push(this.smallListOfTask[1])
+      this.filteredList.push(this.smallListOfTask[2])
+
+    }
 }
 refresh(){
   this.TaskSrv.getAll2();
@@ -25,6 +31,7 @@ almostDone:Task [] = [];
 almostComplete(){
   this.filteredList = [];
   this.almostDone  = []
+  this.nothingSelected = false;
   let first:number = 0;
   let second:number = 0;
   let third:number = 0;
@@ -63,6 +70,7 @@ notEvenClose:Task [] = [];
 waysToGo(){
   this.filteredList = [];
   this.notEvenClose = [];
+  this.nothingSelected = false;
   let first:number = 100;
   let second:number = 100;
   let third:number = 100;
@@ -95,6 +103,7 @@ topPriorityLevel:Task [] = [];
 findHighPriority(){
   this.filteredList = [];
   this.topPriorityLevel = [];
+  this.nothingSelected = false;
   let first:number = 0;
   let second:number = 0;
   let third:number = 0;
@@ -151,6 +160,7 @@ closeToTargetDate()
 {
   this.deadLineTask = [];
   this.filteredList = [];
+  this.nothingSelected = false;
   let dateObj = new Date();
   let month = dateObj.getUTCMonth() + 1; //months from 1-12
   let day = dateObj.getUTCDate();
