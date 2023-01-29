@@ -7,20 +7,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { TaskInfoComponent } from './task-info/task-info.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { StatTrackerComponent } from './stat-tracker/stat-tracker.component';
-import { StatListComponent } from './stat-list/stat-list.component';
 import { HomeDashBoardComponent } from './home-dash-board/home-dash-board.component';
 import { TaskWindowComponent } from './task-window/task-window.component';
 import { CalanderComponent } from './calander/calander.component';
+import { NotesComponent } from './notes/notes.component';
 @NgModule({
   declarations: [
     AppComponent,
     TaskInfoComponent,
     TaskListComponent,
     StatTrackerComponent,
-    StatListComponent,
     HomeDashBoardComponent,
     TaskWindowComponent,
-    CalanderComponent
+    CalanderComponent,
+    NotesComponent
   ],
   imports: [
     BrowserModule,

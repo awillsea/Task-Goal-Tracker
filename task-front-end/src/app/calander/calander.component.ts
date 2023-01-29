@@ -1,4 +1,6 @@
 import { Component,OnInit,ElementRef,ViewChild, AfterViewInit } from '@angular/core';
+import { TaskServiceService } from '../task-service.service';
+import { Task } from '../task';
 
 @Component({
   selector: 'app-calander',
@@ -6,6 +8,22 @@ import { Component,OnInit,ElementRef,ViewChild, AfterViewInit } from '@angular/c
   styleUrls: ['./calander.component.css']
 })
 export class CalanderComponent implements OnInit {
+  data:Task [] = [];
+  taskStartDays:Date [] = [];
+  constructor(public taskSrv:TaskServiceService){
+    this.data = this.taskSrv.data
+    for(let i:number = 0;i <=this.data.length - 1; i++){
+    let tempSpilt:string = this.taskSrv.splitDashFromDatString(this.data[i].start_date);
+    let tempDate:Date = this.taskSrv.convertStringToDate(tempSpilt);
+    this.taskStartDays.push(tempDate);
+    let dayCreated:number = new Date(tempDate.getFullYear(),tempDate.getMonth(),0).getDate();
+
+
+    }
+
+  }
+ 
+
   month:string [] =
   [
     "January",
@@ -31,9 +49,7 @@ export class CalanderComponent implements OnInit {
     "Sat",
 
   ]
-  daysInCurrentMonth:number [] = [
-    // 28,29,30,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,1
-  ]
+  daysInCurrentMonth:number [] = [];
   daysBeforeCurrentMonth:number [] = [];
   daysAfterCurrentMonth:number [] = [];
   daysInCalendarMonth:number [] = [];
@@ -41,12 +57,13 @@ export class CalanderComponent implements OnInit {
   currentMonth:number = this.date.getMonth();
   currentYear:number = this.date.getFullYear();
   isToday:boolean = false;
-
+  todaysNum:number = 0;
   renderCalendar(){  
     let firstDayOfPrevMonth:number = new Date(this.currentYear,this.currentMonth,1).getDay();
     let lastDateOfTheMonth:number = new Date(this.currentYear,this.currentMonth+1,0).getDate();
     let lastDateOfPrevMonth:number = new Date(this.currentYear,this.currentMonth,0).getDate();
     let lastDayOfMonth:number = new Date(this.currentYear,this.currentMonth,lastDateOfTheMonth).getDay()
+    this.todaysNum = 0;
     this.daysInCurrentMonth = [];
     this.daysBeforeCurrentMonth = [];
     this.daysAfterCurrentMonth = [];
@@ -61,6 +78,7 @@ export class CalanderComponent implements OnInit {
       console.log('this.date.getDate() is '+ this.date.getDate())
       if(i === this.date.getDate() && this.currentMonth === new Date().getMonth() && this.currentYear === new Date().getFullYear() ){
         this.isToday = true;
+        this.todaysNum = i;
         console.log(this.isToday)
       }
       
@@ -69,6 +87,17 @@ export class CalanderComponent implements OnInit {
     for(let i:number = lastDayOfMonth; i<6;i++){
       this.daysAfterCurrentMonth.push(i - lastDayOfMonth + 1);
     }
+
+  if(this.currentMonth < 0 || this.currentMonth > 11 ){
+    this.date = new Date(this.currentYear,this.currentMonth);
+    this.currentYear = this.date.getFullYear();
+    this.currentMonth = this.date.getMonth();
+  }else{
+    this.date = new Date();
+
+  }
+
+
 }
   nextMonth(){
     this.currentMonth ++;
@@ -83,6 +112,9 @@ export class CalanderComponent implements OnInit {
 
   }
 
+  TaskMadeOnDay(){
+
+  }
 ngOnInit(): void {
  this.renderCalendar()
 }

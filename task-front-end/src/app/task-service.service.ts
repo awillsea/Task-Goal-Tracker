@@ -16,6 +16,25 @@ export class TaskServiceService {
   port:number = 7140;
   data:any [] = [];
 
+
+
+  convertDateToString(date: Date) {
+    let convert: string = date.toString();
+    return convert;
+  }
+  splitDashFromDatString(stringDate: string) {
+    let parts: any = stringDate.split('-');
+    return parts;
+  }
+  convertStringToDate(dateString: any) {
+    let newDate: Date = new Date(
+      dateString[0],
+      dateString[1] - 1,
+      dateString[2]
+    );
+    return newDate;
+  }
+
   getAll(cb:any){
     this.http.get<Task[]>(`https://localhost:${this.port}/task`).subscribe(cb);
   }
@@ -24,12 +43,6 @@ export class TaskServiceService {
       this.data = response;
     });
   }
-
-
-
- 
-
-
 
 	getOne(cb: any, id: number) {
 		this.http.get<Task>(`https://localhost:${this.port}/task/${id}`).subscribe(cb);
