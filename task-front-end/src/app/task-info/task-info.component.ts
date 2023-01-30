@@ -11,6 +11,7 @@ export class TaskInfoComponent implements OnInit  {
   title:'',
   description:'',
   start_date:'',
+  end_date:'',
   target_end_date:'',
   completion_percentage:1,
   priority_level:4

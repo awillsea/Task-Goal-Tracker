@@ -6,13 +6,15 @@ import { TaskListComponent } from './task-list/task-list.component';
 import { AppComponent } from './app.component';
 import { HomeDashBoardComponent } from './home-dash-board/home-dash-board.component';
 import { TaskWindowComponent } from './task-window/task-window.component';
+import { NotesComponent } from './notes/notes.component';
 const routes: Routes = [
   // { path: 'heroes', component: HeroesComponent }
   {path:'home',component:HomeDashBoardComponent},
   {path:'task',component: TaskListComponent},
   {path:'stats',component:StatTrackerComponent},
-  {path:'taskWindow',component:TaskWindowComponent},
+  // {path:'taskWindow',component:TaskWindowComponent},
   // {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path:'note',component:NotesComponent},
 ];
 
 @NgModule({

@@ -9,7 +9,7 @@ module.exports = {
   plugins: [require("daisyui")],
   daisyui: {
     styled: true,
-    themes: ["dracula"],
+    themes: ["synthwave"],
     base: true,
     utils: true,
     logs: true,
@@ -17,4 +17,5 @@ module.exports = {
     prefix: "",
     darkTheme: "dark",
   },
+  //business
 }

@@ -1,3 +1,36 @@
-<textarea class="textarea textarea-accent" placeholder="Enter Notes Here"></textarea>
-<textarea class="textarea textarea-accent" placeholder="Enter Notes Here"></textarea>
-<textarea class="textarea textarea-accent" placeholder="Enter Notes Here"></textarea>
+<button (click)="showButton()">Make a new note</button>
+<button (click)="showDeleteMode()">Delete</button>
+<ng-container *ngIf="showMakeNewNote">
+   
+    <div class="form-control">
+        <!-- <label class="label">
+          <span class="label-text">Your bio</span>
+          <span class="label-text-alt">Alt label</span>
+        </label> -->
+        <label class="label" for="note" >
+        <textarea id="note"[(ngModel)]="body" class="textarea textarea-bordered h-24" placeholder="Bio"></textarea>
+    </label>
+    <button type="submit" (click)="createANote()">make</button>
+      </div>
+
+</ng-container>
+
+<!-- <button (click)="deleteNote(id)">Clear Note</button> -->
+
+<ng-container *ngFor="let note of listOfNotes">
+     <div class="form-control">
+        <label class="label" for="note" >
+            
+   <textarea id="note" class="textarea textarea-accent" [(ngModel)]="note.body" ></textarea> 
+        </label> 
+        <!-- <div class="w-auto "> -->
+            <!-- {{note.body}}
+        </div> -->
+        <button (click)="editNote(note)">Save Changes to Note</button>
+        <ng-container *ngIf="deleteMode">
+            <button  (click)="deleteNote(note.id)">Delete this note</button>
+            
+        </ng-container>
+     </div>
+    </ng-container>
+

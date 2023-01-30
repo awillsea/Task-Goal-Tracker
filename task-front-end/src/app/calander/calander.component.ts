@@ -58,6 +58,8 @@ export class CalanderComponent implements OnInit {
   currentYear:number = this.date.getFullYear();
   isToday:boolean = false;
   todaysNum:number = 0;
+  endDateMatch:boolean = false;
+  taskEndDate:number = 0;
   renderCalendar(){  
     let firstDayOfPrevMonth:number = new Date(this.currentYear,this.currentMonth,1).getDay();
     let lastDateOfTheMonth:number = new Date(this.currentYear,this.currentMonth+1,0).getDate();
@@ -81,6 +83,7 @@ export class CalanderComponent implements OnInit {
         this.todaysNum = i;
         console.log(this.isToday)
       }
+      
       
     this.daysInCurrentMonth.push(i);
     }
@@ -111,10 +114,24 @@ export class CalanderComponent implements OnInit {
     this.renderCalendar();
 
   }
-
-  TaskMadeOnDay(){
+listOfStringEndDate:string [] = [];
+listOfEndDates:Date [] = [];
+  TaskCompleted(){
+    this.data.forEach((c)=>{this.listOfStringEndDate.push(c.end_date)})
+    this.listOfStringEndDate.forEach((c)=>{
+      let tempParts = this.taskSrv.splitDashFromDatString(c);
+      let tempDate = this.taskSrv.convertStringToDate(tempParts);
+      this.listOfEndDates.push(tempDate);
+    })
 
   }
+  part= {
+    datePart:'',
+    monthPart:'',
+    yearPart:''
+
+  }
+  listOfParts:string [] =[]
 ngOnInit(): void {
  this.renderCalendar()
 }

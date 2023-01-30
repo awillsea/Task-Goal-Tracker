@@ -1,21 +1,45 @@
 
-<p>task-list works!</p>
-<!-- <img class="mask mask-squircle" src="https://placeimg.com/160/160/arch" /> -->
-<ng-container *ngIf="!makeNewTask">
-<button class="btn" (click)="showMakeANewTaskInput()">Make A Task</button>
-</ng-container>
-<br>
-<ng-container *ngIf="makeNewTask">
-    <br>
-    Title: <input type="text" [(ngModel)]="title" placeholder="Type here" class="input input-bordered w-full max-w-xs">  <br>
-    Description:<input type="text" [(ngModel)]="description" placeholder="Type here" class="input input-bordered w-full max-w-xs"> <br>
-    Start Date:<input type="date" [(ngModel)]="start_date" class="input input-bordered w-full max-w-xs"> <br>
-    Target End Date:<input type="date" [(ngModel)]="target_end_date" class="input input-bordered w-full max-w-xs"> <br> 
-    Completion Percentage:<input type="number" [(ngModel)]="completion_percentage" class="input input-bordered w-full max-w-xs"> <br>
-    Priority Level:<input type="number" [(ngModel)]="priority_level" class="input input-bordered w-full max-w-xs"> <br>
-    <button class="btn" (click)="createATask()">Create</button>
-    <button class="btn" (click)="hideNewTask()">Cancel</button>
-    
-    </ng-container>
 
-<app-task-info *ngFor="let task of ListOfTask" [taskInfo]="task" (delete)="deleteTask($event)"></app-task-info>
+<div class="flex justify-center">
+    <app-create-new-modal (sendTask)="makeATask($event)"></app-create-new-modal>
+  <app-edit-delete-modal></app-edit-delete-modal>
+</div>
+<br>
+
+   <div class="overflow-x-auto bg-primary ">
+       <table class="table table-zebra w-full">
+           <!-- head -->
+           <thead class="">
+               <tr>
+                   <th></th>
+                   <th>Title</th>
+                   <th>Description</th>
+                   <th>Start Date</th>
+                   <th>Target End Date</th>
+                   <th>End Date</th>
+                   <th>Completion Percentage</th>
+                   <th>Priority Level</th>
+                   <th><app-task-info></app-task-info></th>
+
+                </tr>
+            </thead>
+            <tbody>
+          <ng-container *ngFor="let task of ListOfTask;let i = index;">
+        <!-- row 1 -->
+        <tr>
+          <th>{{i+1}}</th>
+          <td>{{task.title}}</td>
+          <td>{{task.description}}</td>
+          <td>{{task.start_date}}</td>
+          <td>{{task.target_end_date}}</td>
+          <td>{{task.end_date}}</td>
+          <td>{{task.completion_percentage}}%</td>
+          <td>{{task.priority_level}}</td>
+          <td><button></button></td>
+
+        </tr>
+       
+    </ng-container>
+      </tbody>
+    </table>
+  </div>

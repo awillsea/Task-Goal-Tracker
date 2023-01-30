@@ -1,29 +1,37 @@
-<div >
-<app-task-window></app-task-window>
+<div class="text-center text-4xl">
+  Welcome AJ
+</div>
+<div>
+
+</div>
+<div class="grid grid-cols-3 gap-4 justify-items-center divide-3" >
+    <div class="col-span-3">
+      <app-task-window></app-task-window>
+    </div>
     
 
-<div class="card w-96 bg-base-100 shadow-xl">
+  <div class="card w-96 bg-primary-focus shadow-xl shadow-primary text-primary-content">
     <!-- <figure class="px-10 pt-10">
       <img src="https://placeimg.com/400/225/arch" alt="Shoes" class="rounded-xl" />
     </figure> -->
-    <div class="card-body items-center text-center">
-      <h2 class="card-title">Shoes!</h2>
-      <app-stat-tracker></app-stat-tracker>
+      <div class="card-body items-center text-center">
+        <h2 class="card-title">Stats!</h2>
+          <app-stat-tracker></app-stat-tracker>
       <!-- <div class="card-actions">
         <button class="btn btn-primary">Buy Now</button>
       </div> -->
-    </div>
+      </div>
   </div>
-</div>
 <!-- <label class="swap relative ">
   <input type="checkbox" />
   <div class="swap-on  before:absolute before:left-1 before:bottom-[1px]  before:font-bold before:text-3xl before:text-red-900 before:content-['x']">ON</div>
   <div class="swap-off">OFF</div>
 </label> -->
-<div class="ml-[35rem] mb-[2rem]">
+<div class="">
     <app-calander></app-calander>
     
 </div>
-<div class="ml-[65rem] mb-[15rem]">
+<div class="">
   <app-notes></app-notes>
+</div>
 </div>

@@ -1,4 +1,5 @@
 import { Component,OnInit,Input,Output,EventEmitter } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Task } from '../task';
 import { TaskServiceService } from '../task-service.service';
 @Component({
@@ -8,10 +9,11 @@ import { TaskServiceService } from '../task-service.service';
 })
 export class TaskWindowComponent implements OnInit {
 
-  smallListOfTask:Task [] = [];
+  @ Input() smallListOfTask:Task [] = [];
+  viewOptionTitle:string = '';
   filteredList:Task [] = [];
   nothingSelected:boolean = true;
-  constructor(private TaskSrv:TaskServiceService){
+  constructor(private TaskSrv:TaskServiceService,private activeRoute:ActivatedRoute){
     this.refresh();
   }
   ngOnInit(): void {
@@ -26,9 +28,11 @@ export class TaskWindowComponent implements OnInit {
 refresh(){
   this.TaskSrv.getAll2();
   this.smallListOfTask =  this.TaskSrv.data;
+  // this.smallListOfTask = this.activeRoute.snapshot.data['data'];
 }
 almostDone:Task [] = [];
 almostComplete(){
+  this.viewOptionTitle = 'Highest completion percentage';
   this.filteredList = [];
   this.almostDone  = []
   this.nothingSelected = false;
@@ -68,6 +72,8 @@ almostComplete(){
 }
 notEvenClose:Task [] = [];
 waysToGo(){
+  this.viewOptionTitle = 'Smallest completion percentage';
+
   this.filteredList = [];
   this.notEvenClose = [];
   this.nothingSelected = false;
@@ -101,6 +107,7 @@ this.filteredList = this.notEvenClose;
 
 topPriorityLevel:Task [] = [];
 findHighPriority(){
+  this.viewOptionTitle = 'Highest importance';
   this.filteredList = [];
   this.topPriorityLevel = [];
   this.nothingSelected = false;
@@ -158,6 +165,8 @@ convertStringToDate(dateString: any) {
 deadLineTask:Task [] = [];
 closeToTargetDate()
 {
+  this.viewOptionTitle = 'Upcoming target dates';
+
   this.deadLineTask = [];
   this.filteredList = [];
   this.nothingSelected = false;

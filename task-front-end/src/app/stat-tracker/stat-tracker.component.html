@@ -1,11 +1,11 @@
-<p>stat-tracker works!</p>
-<ng-container>
+<div >
+<ng-container >
     You have {{AmountOfTasks}} task
     Select Date from which you want stats :<br>
     <input type="date" [(ngModel)]="firstDate">
     <input type="date" [(ngModel)]="secondDate">
     <!-- {{title}} -->
-    <button class="btn" (click)="DateCheck()">test</button>
+    <button class="btn " (click)="DateCheck()">test</button>
     
 </ng-container>
 <ng-container *ngIf="taskInRange">
@@ -13,17 +13,18 @@
         You have made {{amountOfTaskWithInRange.length}}
          between {{firstDate}} and {{secondDate}}
     </p>
-        <h2>
+        <!-- <h2>
              The Task you have Created since then are:<br>
         </h2>
 
 <ng-container *ngFor="let t of tempListForStats">
     Title {{t.title}}<br>
    
-</ng-container>
+</ng-container> -->
 
 You have completed {{AmountOfCompletedTaskInRange}} of the {{amountOfTaskWithInRange.length}}<br>
 Your Average Completion percentage of those Task are {{percentWithInRange}}% 
 
 </ng-container>
+</div>
 

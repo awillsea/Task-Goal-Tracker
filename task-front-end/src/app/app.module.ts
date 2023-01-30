@@ -11,6 +11,9 @@ import { HomeDashBoardComponent } from './home-dash-board/home-dash-board.compon
 import { TaskWindowComponent } from './task-window/task-window.component';
 import { CalanderComponent } from './calander/calander.component';
 import { NotesComponent } from './notes/notes.component';
+import { HomeGuardResolver } from './home-guard.resolver';
+import { CreateNewModalComponent } from './create-new-modal/create-new-modal.component';
+import { EditDeleteModalComponent } from './edit-delete-modal/edit-delete-modal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +23,9 @@ import { NotesComponent } from './notes/notes.component';
     HomeDashBoardComponent,
     TaskWindowComponent,
     CalanderComponent,
-    NotesComponent
+    NotesComponent,
+    CreateNewModalComponent,
+    EditDeleteModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +33,7 @@ import { NotesComponent } from './notes/notes.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [HomeGuardResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

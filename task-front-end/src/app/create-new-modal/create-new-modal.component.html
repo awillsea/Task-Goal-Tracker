@@ -1,0 +1,23 @@
+<label for="my-modal" class="btn p-2 bg-accent text-accent-content">Create a new<br> Task/Goal</label>
+
+<!-- Put this part before </body> tag -->
+<input type="checkbox" id="my-modal" class="modal-toggle" />
+<div class="modal">
+  <div class="modal-box">
+    <div class="grid grid-rows-min text-start">
+      <h3 class="font-bold text-lg mb-5 text-center">Make a New Task/Goal!</h3>
+      <!-- <p class="py-4"> -->
+      Title:<input type="text" [(ngModel)]="title" placeholder="Title" class="input input-bordered w-auto max-w-xs">  <br>
+      Description:<input type="text" [(ngModel)]="description" placeholder="Description" class="input input-bordered w-auto max-w-xs"> <br>
+      Start_Date:<input type="date" [(ngModel)]="start_date"  class="input input-bordered w-auto max-w-xs"> <br>
+      Target End Date:<input type="date" [(ngModel)]="target_end_date" class="input input-bordered w-auto max-w-xs"> <br> 
+      Completion Percentage:<input type="number" [(ngModel)]="completion_percentage" class="input input-bordered w-auto max-w-xs"> <br>
+      Priority Level:<input type="number" [(ngModel)]="priority_level" class="input input-bordered w-auto max-w-xs"> <br>
+      <!-- </p> -->
+      <div class="modal-action justify-self-start">
+        <label for="my-modal" class="btn" (click)="createATask()">Create</label>
+        <label for="my-modal" class="btn" >Cancel</label>
+      </div>
+  </div>
+  </div>
+</div>

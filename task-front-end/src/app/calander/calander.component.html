@@ -1,11 +1,11 @@
 <!-- <div #base class="flex items-center justify-center min-h-screen bg-secondary "> -->
-   <ng-container>
-
-   </ng-container>
-    <div #wrapper class="w-96 bg-primary-content ">
+   
+    <div #wrapper class="w-96 bg-neutral shadow-xl shadow-neutral-focus">
             <header class="flex items-center justify-between pt-6 pl-7 pb-2.5">
                 <p class="text-3xl">
                 {{month[currentMonth]}} {{currentYear}}
+
+                <button (click)=TaskCompleted()>test</button>
                  </p>
                 <div >
                     <button (click)="previousMonth()" class="btn btn-circle ">❮</button> 
@@ -24,7 +24,7 @@
                     {{num}}
                 </li>
                 <li *ngFor="let num of daysInCurrentMonth; let i = index"  class="w-[3.3rem] mb-3 mt-1 cursor-pointer  hover:bg-info-content" >
-                    <div *ngIf="i == todaysNum - 1" class="text-black font-bold bg-secondary-content rounded-full">
+                    <div *ngIf="i == todaysNum - 1" class="text-black font-bold bg-accent rounded-full">
                         {{num}}
                     </div>
                     <div *ngIf="i !== todaysNum - 1">
