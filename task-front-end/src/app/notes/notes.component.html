@@ -1,6 +1,6 @@
 <ng-container *ngIf="!deleteMode">
-<button class="btn" (click)="showButton()">Create</button> &nbsp;
-<button class="btn" (click)="showDeleteMode()">Delete</button>
+<button class="btn bg-primary text-primary-content" (click)="showButton()">Create</button> &nbsp;
+<button class="btn bg-primary text-primary-content" (click)="showDeleteMode()">Delete</button>
 </ng-container>
 <ng-container *ngIf="showMakeNewNote">
    
@@ -10,9 +10,9 @@
           <span class="label-text-alt">Alt label</span>
         </label> -->
         <label class="label" for="note" >
-        <textarea id="note"[(ngModel)]="body" class="textarea textarea-bordered h-24" placeholder="Bio"></textarea>
+        <textarea id="note"[(ngModel)]="body" class="textarea textarea-bordered h-24 border-secondary-focus" placeholder="Bio"></textarea>
     </label>
-    <button type="submit" (click)="createANote()">Make</button>
+    <button type="submit" class="bg-primary text-primary-content" (click)="createANote()">Make</button>
       </div>
 
 </ng-container>
@@ -23,14 +23,14 @@
      <div class="form-control">
         <label class="label" for="note" >
             
-   <textarea id="note" class="textarea textarea-accent" [(ngModel)]="note.body" ></textarea> 
+   <textarea id="note" class="textarea textarea-accent border-accent" [(ngModel)]="note.body" ></textarea> 
         </label> 
         <!-- <div class="w-auto "> -->
             <!-- {{note.body}}
         </div> -->
-        <button class="btn" (click)="editNote(note)">Save</button> &nbsp;
+        <button class="btn bg-primary text-primary-content" (click)="editNote(note)">Save</button> &nbsp;
         <ng-container *ngIf="deleteMode">
-            <button class="btn"  (click)="deleteNote(note.id)">Delete this note</button>
+            <button class="btn bg-primary text-primary-content"  (click)="deleteNote(note.id)">Delete this note</button>
             
         </ng-container>
      </div>
