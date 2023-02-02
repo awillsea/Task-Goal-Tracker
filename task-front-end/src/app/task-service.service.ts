@@ -14,6 +14,7 @@ export class TaskServiceService {
 
  
   port:number = 7140;
+  httpString:string = `https://localhost:${this.port}/task`;
   data:any [] = [];
 
 
@@ -53,7 +54,7 @@ export class TaskServiceService {
 	};
 
 	UpdateTask(cb:any, Task:Task){
-		this.http.put<Task>(`https://localhost:${this.port}/task/${Task}`, Task).subscribe(cb);
+		this.http.put<Task>(`${this.httpString}/`, Task).subscribe(cb);
 	}
   DeleteTask(cb:any, task_id:number){
     this.http.delete<Task>(`https://localhost:${this.port}/task?id=${task_id}`).subscribe(cb);

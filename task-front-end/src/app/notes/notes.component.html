@@ -1,5 +1,7 @@
-<button (click)="showButton()">Make a new note</button>
-<button (click)="showDeleteMode()">Delete</button>
+<ng-container *ngIf="!deleteMode">
+<button class="btn" (click)="showButton()">Create</button> &nbsp;
+<button class="btn" (click)="showDeleteMode()">Delete</button>
+</ng-container>
 <ng-container *ngIf="showMakeNewNote">
    
     <div class="form-control">
@@ -10,7 +12,7 @@
         <label class="label" for="note" >
         <textarea id="note"[(ngModel)]="body" class="textarea textarea-bordered h-24" placeholder="Bio"></textarea>
     </label>
-    <button type="submit" (click)="createANote()">make</button>
+    <button type="submit" (click)="createANote()">Make</button>
       </div>
 
 </ng-container>
@@ -26,9 +28,9 @@
         <!-- <div class="w-auto "> -->
             <!-- {{note.body}}
         </div> -->
-        <button (click)="editNote(note)">Save Changes to Note</button>
+        <button class="btn" (click)="editNote(note)">Save</button> &nbsp;
         <ng-container *ngIf="deleteMode">
-            <button  (click)="deleteNote(note.id)">Delete this note</button>
+            <button class="btn"  (click)="deleteNote(note.id)">Delete this note</button>
             
         </ng-container>
      </div>

@@ -1,31 +1,27 @@
-<label for="my-modal-4" class="btn">open modal</label>
+<label for="my-modal-1" class="btn p-2 bg-accent text-accent-content" (click)="taskSearchById(taskID)">Edit Task</label>
 
 <!-- Put this part before </body> tag -->
-<input type="checkbox" id="my-modal-4" class="modal-toggle" />
-<label for="my-modal-4" class="modal ">
-  <label class="modal-box relative" for="">
-    <h3 class="text-lg font-bold">Congratulations random Internet user!</h3>
-    
-    <p class="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
-    <ng-container *ngIf="!selected">
-      <h3 class="text-lg font-bold">Enter the number of the Task you want to edit</h3>
-      <input type="number" [(ngModel)]="taskID">
-      <button (click)="taskSearchById(taskID)">TestING</button>
-      </ng-container>
-    <ng-container *ngIf="selected">
-    <input type="text"[(ngModel)]="editTitle">
-    <input type="text"[(ngModel)]="editDescription" >
-    <input type="date"[(ngModel)]="editTargetDate">
-    <input type="number"[(ngModel)]="editCompletionPercentage">
-    <input type="number"[(ngModel)]="editPriorityLevel">
-    <br><br>
-    <button (click)="saveChanges()">Save</button>
-    <button (click)="cancelChanges()">Cancel</button>  
-    </ng-container>
-  
-  
-  
-  </label>
-</label>
-    
-
+<input type="checkbox" id="my-modal-1" class="modal-toggle" />
+<div class="modal">
+  <div class="modal-box">
+    <div class="grid grid-rows-min text-start">
+      <h3 class="font-bold text-lg mb-5 text-center">Edit</h3>
+      <!-- <p class="py-4"> -->
+        <div class="flex flex-col flex-nowrap justify-center">
+          Title:<input type="text"[(ngModel)]="editTitle"><br>
+          Description:<input type="text"[(ngModel)]="editDescription" ><br>
+          Target Date:<input type="date"[(ngModel)]="editTargetDate"><br>
+          Completion Percentage:<input type="number"[(ngModel)]="editCompletionPercentage"><br>
+          Priority Level:<input type="number"[(ngModel)]="editPriorityLevel"><br>
+          <br><br>
+            
+        </div>
+      <!-- </p> -->
+      <div class="modal-action justify-self-start">
+        <label for="my-modal-1" class="btn" (click)="saveChanges(taskID)">Save</label>
+        <label for="my-modal-1" class="btn" >Cancel</label>
+          <!-- <button (click)="cancelChanges()">Cancel</button> -->
+      </div>
+  </div>
+  </div>
+</div>

@@ -24,7 +24,7 @@ export class EditDeleteModalComponent {
     this.listOfTask = this.taskSrv.data;
   }
   selected:boolean = false;
-taskID:number = 0;
+ @Input() taskID:number = 0;
   editMode:boolean = false;
   editTitle:string = '';
   editDescription:string ='';
@@ -60,23 +60,25 @@ taskID:number = 0;
   // this.delete.emit(this.taskInfo.id);
   // }
   
-  saveChanges(){
+  saveChanges(id:number){
+    this.taskInfo.id = id;
     this.taskInfo.title = this.editTitle;
     this.taskInfo.description = this.editDescription;
     this.taskInfo.target_end_date = this.editTargetDate;
     this.taskInfo.completion_percentage = this.editCompletionPercentage;
     this.taskInfo.priority_level = this.editPriorityLevel;
   
-    this.editMode = false;
+    // this.editMode = false;
+    this.taskSrv.UpdateTask(()=>{console.log(this.taskInfo)},this.taskInfo);
   }
-  cancelChanges(){
-  this.editMode = false;
-  }
-  expand:boolean = false;
-  expandInfo(){
-    this.expand = true;
-  }
-  hideInfo(){
-    this.expand = false;
-  }
+  // cancelChanges(){
+  // this.editMode = false;
+  // }
+  // expand:boolean = false;
+  // expandInfo(){
+  //   this.expand = true;
+  // }
+  // hideInfo(){
+  //   this.expand = false;
+  // }
 }

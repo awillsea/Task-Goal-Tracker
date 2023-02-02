@@ -2,7 +2,7 @@
 
 <div class="flex justify-center">
     <app-create-new-modal (sendTask)="makeATask($event)"></app-create-new-modal>
-  <app-edit-delete-modal></app-edit-delete-modal>
+  <!-- <app-edit-delete-modal></app-edit-delete-modal> -->
 </div>
 <br>
 
@@ -35,7 +35,7 @@
           <td>{{task.end_date}}</td>
           <td>{{task.completion_percentage}}%</td>
           <td>{{task.priority_level}}</td>
-          <td><button></button></td>
+          <td><app-edit-delete-modal [taskID]="task.id"></app-edit-delete-modal></td>
 
         </tr>
        

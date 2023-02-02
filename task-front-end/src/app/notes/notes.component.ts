@@ -46,6 +46,7 @@ deleteNote(noteID: number) {
     this.refresh();
     console.log(noteID);
   }, noteID);
+  this.deleteMode = false;
 }
 editMode:boolean = false;
 editTitle:string ='';
